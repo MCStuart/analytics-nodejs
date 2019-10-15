@@ -1,0 +1,27 @@
+{
+  "name": "analytics-nodejs",
+  "version": "1.0.0",
+  "description": "custom analytics dashboard using Google Analytics API and Node.js",
+  "main": "server.js",
+  "scripts": {
+    "test_server": "jest ./ --passWithNoTests",
+    "test_client": "cd client && npm test",
+    "test": "concurrently \"npm test_server\" \"npm test_client\"",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm build"
+  },
+  "author": "Stuart McKay",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "googleapis": "^44.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "jest": "^24.9.0"
+  }
+}
