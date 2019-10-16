@@ -32,3 +32,20 @@ async function getMetric(metric, startDate, endDate) {
   };
   return res;
 }
+
+function parseMetric(metric) {
+  let cleanMetric = metric;
+  if (!cleanMetric.startsWith('ga:')) {
+    cleanMetric = `ga:${cleanMetric}`;
+  }
+  return cleanMetric;
+}
+function getData(metrics = ['ga:users'], startDate = '30daysAgo'. endDate = 'today') {
+  // ensure all metrucs have google analytics (ga:)
+  const results = [];
+  for (let i = 0; i < metrics.length; i += 1) {
+    const metric = parseMetric(metrics[i]);
+    results.push(getMetric(metric, startDate, endDate));
+  }
+  return results;
+}
