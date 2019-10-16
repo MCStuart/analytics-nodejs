@@ -40,6 +40,7 @@ function parseMetric(metric) {
   }
   return cleanMetric;
 }
+
 function getData(metrics = ['ga:users'], startDate = '30daysAgo'. endDate = 'today') {
   // ensure all metrucs have google analytics (ga:)
   const results = [];
@@ -49,3 +50,5 @@ function getData(metrics = ['ga:users'], startDate = '30daysAgo'. endDate = 'tod
   }
   return results;
 }
+
+module.exports = { getData };
